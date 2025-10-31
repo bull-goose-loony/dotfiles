@@ -84,10 +84,14 @@ alias h='history'
 alias ps='ps -au'
 alias vim='$TEXT_EDITOR'
 alias psa='ps -au'
+
 # ls
 alias ls="eza --icons --git"
 alias ll="eza --long --all --git"
 alias lt="eza --long --tree --level=3"
+
+# cat
+alias cat='bat'
 
 # PROGRAMMING
 alias py='python3'
