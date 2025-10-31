@@ -102,3 +102,5 @@ function juf(){
  journalctl --user -a -f -u "$1"
 }
 
+
+alias gacp='gacp.sh'

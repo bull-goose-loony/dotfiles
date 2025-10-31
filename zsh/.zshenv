@@ -30,10 +30,6 @@ export NOTES_DIR="$HOME/notes"
 
 # Quick directory paths
 export PROJECT_DIRECTORY="$HOME/src"
-export STE="PROJECT_DIRECTORY/rust-projects/ste/"
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-
-export PATH="$JAVA_HOME/bin:$PATH"
