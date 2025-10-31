@@ -1,4 +1,34 @@
 ################################
+##### fzf
+################################
+
+source <(fzf --zsh)
+
+# Open in tmux popup if on tmux, otherwise use --height mode
+export FZF_DEFAULT_OPTS="
+  --color=always
+  --height 40% 
+  --tmux 80% 
+  --border top"
+
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
+
+################################
 ##### ALIASES AND FUNCTIONS 
 ################################
 
@@ -61,6 +91,7 @@ alias gs='git status'
 alias gp='git push'
 alias ga='git add .'
 alias gcm='git commit -m'
+alias gd='git diff --name-only --relative --diff-filter=d -z | xargs -0 bat --diff'
 
 # Configs git
 alias config='/usr/bin/git --git-dir=$DOTFILE_DIR/ --work-tree=$HOME'
@@ -104,3 +135,4 @@ function juf(){
 
 
 alias gacp='gacp.sh'
+
