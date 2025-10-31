@@ -1,0 +1,26 @@
+-- I guess this gives a good git interface, I'll have to check it out
+
+-- -- Git blame
+-- vim.keymap.set("n", "<leader>gb", function()
+--   vim.cmd("Git blame")
+-- end)
+--
+-- -- Git diff
+-- vim.keymap.set("n", "<leader>gd", function()
+--   vim.cmd("Git diff")
+-- end)
+--
+-- -- Git log
+-- vim.keymap.set("n", "<leader>gl", function()
+--   vim.cmd("Git log")
+-- end)
+--
+-- -- Git push
+-- vim.keymap.set("n", "<leader>gp", function()
+--   vim.cmd("Git push")
+-- end)
+--
+-- -- Git pull
+-- vim.keymap.set("n", "<leader>gP", function()
+--   vim.cmd("Git pull")
+-- end)

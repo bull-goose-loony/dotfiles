@@ -1,0 +1,104 @@
+################################
+##### ALIASES AND FUNCTIONS 
+################################
+
+export KEYMAP_DIR="$HOME/qmk_firmware/keyboards/ergodox_ez/keymaps/zachs_keymap/"
+export DOTFILE_DIR="$HOME/.cfg"
+export WM_CONF="$HOME/.config/hypr/hyprland.conf" 
+export TERM_CONF="$HOME/.config/ghostty/config"
+
+#Resume
+alias br='cd ~/resume && pdflatex resume.tex && evince resume.pdf'
+alias cd='z'
+
+# General
+alias swapscreen='xrandr --output HDMI-1 --left-of DP-2'
+alias wmconf='$TEXT_EDITOR $WM_CONF' 
+alias why='ncdu'
+alias h='history'
+alias postgres='sudo -i -u postgres'
+alias bdb='psql -U postgres -d budgetdb'
+alias bdbload='psql -U postgres -d budgetdb -f /home/zach/src/personal-budget/budget-backend/init_db.sql'
+alias down='sudo shutdown now'
+alias termconf='$TEXT_EDITOR $TERM_CONF'
+
+# Pacman
+alias sps='sudo pacman -S'
+alias spsy='sudo pacman -Sy'
+alias spsu='sudo pacman -Su'
+alias spsyyu='sudo pacman -Syyu'
+
+
+alias ke='cd $KEYMAP_DIR && vim .'
+alias kf='cd $KEYMAP_DIR && qmk flash -kb ergodox_ez -km zachs_keymap && cd -'
+alias kc='cd $KEYMAP_DIR && qmk compile -kb ergodox_ez -km zachs_keymap && cd -'
+
+# CONFIGS
+alias al='$TEXT_EDITOR $ZSH_ALIAS'
+alias ale='cat $ZSH_ALIAS'
+alias env='$TEXT_EDITOR $HOME/.zshenv'
+alias sauce='source $ZSHRC'
+alias vrc='cd $XDG_CONFIG_HOME/nvim; nvim .'
+
+# OVERWRITES
+alias grep='rg'
+alias h='history'
+alias ps='ps -au'
+alias vim='$TEXT_EDITOR'
+alias psa='ps -au'
+# ls
+alias ls="eza --icons --git"
+alias ll="eza --long --all --git"
+alias lt="eza --long --tree --level=3"
+
+# PROGRAMMING
+alias py='python3'
+
+# GIT
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gs='git status'
+alias gp='git push'
+alias ga='git add .'
+alias gcm='git commit -m'
+
+# Configs git
+alias config='/usr/bin/git --git-dir=$DOTFILE_DIR/ --work-tree=$HOME'
+alias cgs='config status'
+alias cgp='config push'
+alias cga='config add -u'
+alias cgc='config commit --allow-empty-message -m ""'
+
+# Start/Enable
+alias start='sudo systemctl start'
+alias enab='sudo systemctl enable'
+
+# Maven
+alias mccp='mvn clean compile package -DSkipTests'
+alias mcc='mvn clean compile'
+alias mccu='mvn clean compile -U' 
+alias mci='mvn clean install'
+alias mt='mvn test'
+alias mdt='mvn -Dtest='
+
+#Rust
+alias ctl='cargo test -- --nocapture' # cargo test print logs
+
+# journal logs since boot
+function jb(){
+ journalctl -a -b -u "$1" | less +G
+}
+ 
+function jub(){
+ journalctl --user -a -b -u "$1" | less +G
+}
+ 
+# follow journal logs
+function jf(){
+ journalctl -a -f -u "$1"
+}
+ 
+function juf(){
+ journalctl --user -a -f -u "$1"
+}
+
