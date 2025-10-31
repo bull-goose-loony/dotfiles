@@ -1,12 +1,20 @@
 ################################
+##### bat
+################################
+# colorize man pages
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+
+# colorize help pages
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+################################
 ##### fzf
 ################################
-
 source <(fzf --zsh)
 
 # Open in tmux popup if on tmux, otherwise use --height mode
 export FZF_DEFAULT_OPTS="
-  --color=always
   --height 40% 
   --tmux 80% 
   --border top"
